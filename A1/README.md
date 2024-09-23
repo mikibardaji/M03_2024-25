@@ -2,12 +2,12 @@
 
 Exercicis i solucions de l'activitat A1.
 
-### A1_UD1 Operadors basics. Fonaments Programació
+### DOCUMENTS
 
-### A1_UD2 Diagrames Fluxe. Programes Sequencials i Condicionals (If's)
+    · **A1_UD1 Operadors basics.**  Operadors basics. Fonaments Programació
 
-### A1_CheatSheet_para_transformarOrdinogramaACodigoJava.docx
+    · **A1_UD2 ** Diagrames Fluxe. Programes Sequencials i Condicionals (If's)
 
- Chuleta bàsica per transformar les diferents figures del ordinograma, a instruccions java automaticament.
+    · **A1_CheatSheet_para_transformarOrdinogramaACodigoJava.docx** Chuletari bàsic per transformar les diferents figures de l'ordinograma, a instruccions Java automàticament.
 
 
