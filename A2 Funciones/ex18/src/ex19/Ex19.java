@@ -29,21 +29,21 @@ public class Ex19 {
     {
         char letra=' ';
         int residuo = DNI%23;
-        if (residuo==0)
-        {
-            letra = 'T';
-        }
-        else if(residuo==1)
-        {
-            letra = 'R';
-        }
-        else if(residuo==2)
-        {
-            letra = 'W';
-        }
-        else if(residuo==15)
-        {
-            letra = 'S';
+        switch (residuo) {
+            case 0:
+                letra = 'T';
+                break;
+            case 1:
+                letra = 'R';
+                break;
+            case 2:
+                letra = 'W';
+                break;
+            case 15:
+                letra = 'S';
+                break;
+            default:
+                break;
         }
         return letra;
        
