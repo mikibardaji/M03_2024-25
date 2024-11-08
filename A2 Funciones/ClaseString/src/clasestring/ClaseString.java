@@ -71,4 +71,25 @@ public class ClaseString {
         
     }
     
+    
+    public static String funcion(String frase1)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Pon una frase");
+        String frase2 = sc.nextLine();
+        System.out.println(frase2);
+        return frase2;
+    }
+    
+    public static void funcion()
+    { Scanner sc = new Scanner(System.in);
+        switch(letra)
+        {
+            case 'A':
+                /*vuestro codigo*/
+                sc.nextLine();
+                break;
+        }
+            case 
+    }
 }
