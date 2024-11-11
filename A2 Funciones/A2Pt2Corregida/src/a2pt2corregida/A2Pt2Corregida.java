@@ -103,7 +103,8 @@ public class A2Pt2Corregida {
      * @return grados en celsuis
      */
     public static double conversorTemperatura(double gradosFahrenheit) {
-        double Celsius = (double) (gradosFahrenheit - 32) * (5.0 / 9.0);
+        double Celsius = (double) (gradosFahrenheit - 32) * (5 / 9);
+        double dd = (gradosFahrenheit-32)*(5/9);
         return Celsius;
     }
 
@@ -113,14 +114,15 @@ public class A2Pt2Corregida {
      * @return true si es un numero par , false si es impar
      */
     public static boolean esPar(int numero) {
-        if (numero % 2 == 0)
+        return (numero % 2 == 0);
+        /*if (numero % 2 == 0)
         {
             return true;
         }
         else
         {
             return false;
-        }
+        }*/
     }
 
    /**
@@ -129,7 +131,7 @@ public class A2Pt2Corregida {
     */
     public static int tiradaCarta() {
         Random rand = new Random();
-        int num = rand.nextInt(12) + 1;  // Genera un número aleatorio entre 1 y 12
+        int num = rand.nextInt(1,13);  // Genera un número aleatorio entre 1 y 12
         return num;
     }    
    /**
