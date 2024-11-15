@@ -19,6 +19,7 @@ public class AssistentVeu {
         final String ORDENOK = "alexa ";
         final String BUENAS = "BUENOS DIAS";
         final String HABLA = "HABLA CON LA ";
+        final String CUENTA = "CUENTAVOCALES A ";
         Scanner sc = new Scanner(System.in);
         //pedir nombre y guardarlo
         System.out.println("Hola, como te llamas?");
@@ -52,15 +53,17 @@ public class AssistentVeu {
                 }
                 else if(orden.startsWith(HABLA))
                 {
-                    hablarConLetra(orden);
-                     
+                    hablarConLetra(orden);  
                 }
-
+                else if(orden.startsWith(CUENTA))
+                {
+                    cuentaVocales(orden, CUENTA);
+                }
                 System.out.println("orden "+ orden);
             }
             else
             {
-
+                System.out.println("Instruccion no empieza por alexa ");
             }
         }while(!salir);
         
@@ -108,8 +111,8 @@ public class AssistentVeu {
 
     private static void canta() {
 //        String[] frase = {"Dos","Tres"};
-//        for (int i = 0; i < frase.length; i++) {
-//            System.out.println(frase[i] + " elefantes se balanceaban\n" +
+//        for (int posicion = 0; posicion < frase.length; posicion++) {
+//            System.out.println(frase[posicion] + " elefantes se balanceaban\n" +
 //"Sobre la tela de una araña, como veía que resistía, fueron a llamar otro elefante");
 //        }
                 
@@ -131,8 +134,25 @@ public class AssistentVeu {
         frase = frase.replace('I', letra);
         frase = frase.replace('O', letra);
         frase = frase.replace('U', letra);
-        System.out.println(frase);
-                
+        System.out.println(frase);        
+    }
+
+    private static void cuentaVocales(String orden, String CUENTA) {
+        String frase=orden.substring(CUENTA.length());
+        System.out.println("frase > " + frase);
+        int vocales =0;
+        for (int posicion = 0; posicion < frase.length(); posicion++) {
+            //en cada posicion pregunto si es vocal
+            if (frase.charAt(posicion)=='A' 
+                    || frase.charAt(posicion) == 'E'
+                    || frase.charAt(posicion) == 'I'
+                    || frase.charAt(posicion) == 'O'
+                    || frase.charAt(posicion) == 'U')
+            {
+                vocales++;
+            }
+        }
+        System.out.println("Vocales existentes " + vocales);
     }
     
 }
