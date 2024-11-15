@@ -17,23 +17,52 @@ public class AssistentVeu {
      */
     public static void main(String[] args) {
         final String ORDENOK = "alexa ";
+        final String BUENAS = "BUENOS DIAS";
+        final String HABLA = "HABLA CON LA ";
+        Scanner sc = new Scanner(System.in);
         //pedir nombre y guardarlo
-        
+        System.out.println("Hola, como te llamas?");
+        String nombre = sc.nextLine();
+        boolean salir=false;
         //pedir instruccion
-        String instruction = pedirInstruccion();
-        
-        //validarsies validar
-        if (instruccionValida(instruction, ORDENOK))
-        { //cierto 
-            //recortar frase para quedarme con la orden a secas
-            String orden = cogerFrase(instruction, ORDENOK);
-            System.out.println("orden "+ orden);
-        }
-        else
-        {
+        do{
             
-        }
         
+            String instruction = pedirInstruccion();
+
+            //validarsies validar
+            if (instruccionValida(instruction, ORDENOK))
+            { //cierto 
+                //recortar frase para quedarme con la orden a secas
+                String orden = cogerFrase(instruction, ORDENOK);
+                orden = orden.toUpperCase();
+                if (orden.equals(BUENAS))
+                {
+                    decirBuenosDias(nombre);
+                }
+                else if(orden.equals("BUENAS NOCHES"))
+                {
+                    decirBuenasNoches(nombre);
+                    salir=true;
+                }
+                else if(orden.equals("CANTA UNA CANCION"))
+                {
+                    canta();
+                    salir=true;
+                }
+                else if(orden.startsWith(HABLA))
+                {
+                    hablarConLetra(orden);
+                     
+                }
+
+                System.out.println("orden "+ orden);
+            }
+            else
+            {
+
+            }
+        }while(!salir);
         
     }
 
@@ -67,6 +96,43 @@ public class AssistentVeu {
             int inicio_orden = ORDENOK.length();
             String orden = instruction.substring(inicio_orden);
             return orden;
+    }
+
+    private static void decirBuenosDias(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private static void decirBuenasNoches(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private static void canta() {
+//        String[] frase = {"Dos","Tres"};
+//        for (int i = 0; i < frase.length; i++) {
+//            System.out.println(frase[i] + " elefantes se balanceaban\n" +
+//"Sobre la tela de una araña, como veía que resistía, fueron a llamar otro elefante");
+//        }
+                
+        for (int i = 2; i <= 10; i++) {
+            System.out.println(i + " elefantes se balanceaban\n" +
+"Sobre la tela de una araña, como veía que resistía, fueron a llamar otro elefante");
+            
+        }
+    }
+
+    private static void hablarConLetra(String orden) {
+         final String HABLA = "HABLA CON LA ";
+        final String ENCONTRAR_FRASE = "Habla con la X y di ";
+        char letra = orden.charAt(HABLA.length());
+        String frase=orden.substring(ENCONTRAR_FRASE.length());
+        System.out.println(">" + letra + "---" + frase);
+        frase = frase.replace('A', letra);
+        frase = frase.replace('E', letra);
+        frase = frase.replace('I', letra);
+        frase = frase.replace('O', letra);
+        frase = frase.replace('U', letra);
+        System.out.println(frase);
+                
     }
     
 }
