@@ -10,11 +10,13 @@ package Objectes;
  */
 public class Ampolla {
     //Atributs
-    private int capacitat; //capacitat Maxima ampolla
-    private int obertura; //diametre del forat de l'ampolloa
+    private final int capacitat; //capacitat Maxima ampolla
+    //Variables final no poden tenir metodoes que modifiquin valor (Setters)
+    private final int obertura; //diametre del forat de l'ampolloa
     private boolean tapon; //si tiene o no tiene tapon
     private int liquid_actual;
-    private String Material;
+    private final String Material;
+    
 
     public Ampolla()
     {
@@ -51,7 +53,7 @@ public class Ampolla {
     {
         return capacitat;
     }
-    
+    /* setter no es valid perque la variable es tipus final
     public void setCapacitat(int new_capacitat)
     {
         if (new_capacitat>0)
@@ -62,16 +64,13 @@ public class Ampolla {
         { //no canvia el valor
             System.out.println("capacidad negativa"); 
         }
-        
-    }
+    } */
 
     public int getObertura() {
         return obertura;
     }
 
-    public void setObertura(int obertura) {
-        this.obertura = obertura;
-    }
+
 
     public boolean isTapon() {
         return tapon;
@@ -104,9 +103,6 @@ public class Ampolla {
         return Material;
     }
 
-    public void setMaterial(String Material) {
-        this.Material = Material;
-    }
     
     
     /**
@@ -138,7 +134,7 @@ public class Ampolla {
 //                liquid_actual = capacitat;
 //            }
             //opcio 2
-            setLiquid_actual(liquid_actual);
+            setLiquid_actual(liquid_actual+liquid);
         }
         else
         {

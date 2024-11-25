@@ -4,7 +4,10 @@
  */
 package maquinaplenar;
 
-import Objectes.Ampolla;
+//import Objectes.Ampolla;
+//import Objectes.Got;
+import Objectes.*;
+
 
 /**
  *
@@ -27,14 +30,44 @@ public class MaquinaPlenar {
         {
             System.out.println("Esta ple");
         }
+        Got glass= new Got(25);
+        int sobrante=0;
         //IR VERTIENDO Y MOSTRANDO CUANTO LIQUIDO ME QUEDA
         do{
             vertido = bottle85.verter();
+            if ((glass.getCapacitat() - glass.getLiquid_actual())>vertido)
+            {
+                
+                glass.plenar(vertido);
+                System.out.println("normal" + glass.getLiquid_actual());
+            }
+            else
+            {
+                sobrante = vertido - (glass.getCapacitat() - glass.getLiquid_actual());
+                glass.plenar(vertido);
+                
+                
+                //liquid sobrant que ficare al seguent got
+                System.out.println("estic ple: " + glass.getLiquid_actual());
+                System.out.println("sobra aquest liquid->" + sobrante);
+                
+            }
+            if (glass.ple())
+            {
+                System.out.println("Creo nou got");
+                glass = new Got(25);
+                glass.plenar(sobrante);
+            }
+           
+            
+            System.out.println("got liquid " + glass.getLiquid_actual());
+            //inicialitzar got
+            //plenarlo
             System.out.println("he vertido "+ vertido + " me queda " + bottle85.getLiquid_actual());
         }while(!bottle85.buit());
         //CUANDO NO TENGO LIQUIDO DIGO QUE YA ESTA Y PARO
-        
-        
+        //imprimir quants gots he utilitzats
+        System.out.println("Gots utilitzats: " + Got.getNum_gots());
         
         
         
