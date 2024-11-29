@@ -7,7 +7,7 @@ package ex1punto;
 import Objecte.Persona;
 import Objecte.Punto;
 
-/**
+/**"C:\Users\mabardaji\Downloads\m03_2025\A3 Poo\ex1Punto\src\ex1punto\Ex1Punto.java"
  *
  * @author mabardaji
  */
