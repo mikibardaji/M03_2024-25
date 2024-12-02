@@ -47,7 +47,7 @@ public class Jugador {
     public void correr()
     {
         int velocitat_normal = 2;
-        if (power_up==true)
+        if (power_up) //power_up==true
         {
             distancia_acumulada = distancia_acumulada + velocitat_normal*3;
         }
@@ -55,7 +55,7 @@ public class Jugador {
         {
             distancia_acumulada = distancia_acumulada + velocitat_normal;
         }
-        System.out.println("Porto " + distancia_acumulada + " metres ");
+        //System.out.println("Porto " + distancia_acumulada + " metres ");
     }
     
     /*
@@ -80,15 +80,35 @@ public class Jugador {
         {
             power_up = false;
         }
-        if (obs.getTipus().equalsIgnoreCase("tren"))
+        if (obs.getTipus().equals(TipoObstaculo.BARRERA))
         {
-            energia -= obs.getDificultat();
+            //energia -= obs.getDificultat();
+            this.distancia_acumulada -= 1;
         }
         else
         {
-             energia -= obs.getDificultat();
+             //energia -= obs.getDificultat(); /*v1*/
+             this.distancia_acumulada -= 2; /*v2*/
         }
         System.out.println("He chocado con " + obs.getTipus() + 
         " y tengo energia " + energia);
     }
+
+    public void setEnergia(int energia) {
+        if (energia>0)
+        {
+            this.energia = energia;
+        }
+        else
+        {
+            this.energia = 0;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return  nom  + " lleva " + distancia_acumulada + " metros de vida le queda" + energia ;
+    }
+    
+    
 }

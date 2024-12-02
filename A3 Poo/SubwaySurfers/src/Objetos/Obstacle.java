@@ -17,7 +17,8 @@ interactuar(Jugador jugador): Redueix l’energia del jugador segons la dificultat
  * @author mabardaji
  */
 public class Obstacle {
-    private final String tipus;//final
+    //private final String tipus;// ABANS DEL ENUM
+    private final TipoObstaculo tipus;
     private final int dificultat; //final
 
     /**
@@ -28,25 +29,48 @@ public class Obstacle {
         int valor = rd.nextInt(1, 3);
         if (valor ==1)
         {
-            tipus = "Barrera";
+            tipus = TipoObstaculo.BARRERA;
             dificultat = rd.nextInt(1, 6);
         }
         else
         {
-            tipus = "Tren";
+            tipus = TipoObstaculo.TREN;
             dificultat = rd.nextInt(5, 11);
         }
             
     }
 
-    public String getTipus() {
+//    public String getTipus() {
+//        return tipus;
+//    }
+
+    public TipoObstaculo getTipus() {
         return tipus;
     }
+    
+    
 
     public int getDificultat() {
         return dificultat;
     }
     
     //dificultat = rd.nextInt(1, 6);
+    /*
+    interactuar(Jugador jugador): 
+    Redueix l’energia del jugador segons la dificultat de l’obstacle.
+    */
+    public void interactuar(Jugador player)
+    {
+        int ener_restant = player.getEnergia() - dificultat;
+        //asignarli la nova energia
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Obstaculo => " + tipus + " de dificultad " + dificultat ;
+    }
+    
+    
     
 }
