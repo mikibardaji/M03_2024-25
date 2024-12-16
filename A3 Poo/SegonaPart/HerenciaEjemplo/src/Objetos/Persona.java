@@ -40,6 +40,11 @@ public class Persona {
     {
         this.life = Vida.MUERTO;
     }
+    
+    public final void saludar()
+    {
+        System.out.println("Hola que tal?");
+    }
 
     public String getNombre() {
         return nombre;

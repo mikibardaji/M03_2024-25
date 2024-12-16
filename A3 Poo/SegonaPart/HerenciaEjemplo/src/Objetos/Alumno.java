@@ -32,6 +32,8 @@ public class Alumno extends Persona {
     public void morir() {
         System.out.println("Los alumnos nunca mueren!!! ");
     }
+
+
     
     
     

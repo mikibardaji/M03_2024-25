@@ -6,9 +6,10 @@ package Objetos;
 
 /**
  *
- * @author mabardaji
+ * @author mabardaji final a classe no deixa que hi hagi clases derivades
+ * 
  */
-public class Profesor extends Persona {
+public final class Profesor extends Persona {
     private String departament;
     private String modulos;
 
