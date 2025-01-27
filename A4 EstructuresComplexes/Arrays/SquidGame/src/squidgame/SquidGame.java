@@ -39,7 +39,7 @@ public class SquidGame {
                 //opcion 1 metodo que coge todo el array y lo deja en blanco
                 limpiarCamino(camino);
 
-                //opcion 2 poner la posición a blanco
+                //opcion 2 poner la posición a blanco solo una de las opciones ya vale
                 camino[casilla_jugador] = '_';
 
                 mostrarCamino(camino);
@@ -62,6 +62,7 @@ public class SquidGame {
        if (casilla_jugador==camino.length)
        {
            System.out.println("Has ganado 10000000000000 € ");
+           System.out.println("Han muerto --> " + contarMuertos(muertos) + " personas");
        }
     }
 
@@ -100,6 +101,14 @@ public class SquidGame {
             System.out.print(valor + "*");
         }
         System.out.println();
+    }
+
+    private static int contarMuertos(int[] muertos) {
+        int total=0;
+        for (int muerto : muertos) {
+            total += muerto; //sumo todos, tambien los 0's porque no afectan
+        }
+        return total;
     }
     
 }
