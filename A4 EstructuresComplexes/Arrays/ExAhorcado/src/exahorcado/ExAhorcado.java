@@ -50,7 +50,7 @@ public class ExAhorcado {
 //
 
 
-/
+
 //Aquesta busqueda implementeu-la buscant-la al String, no al array de char (que també es podria fer).
 //Tindras fins a 6 vides, quant et quedis sense vides, acaba el joc. o si encertes (cada errada es pintara un penjat diferent, podeu utilitzar la funció que esta adjuntada al document).
 //El joc acaba, quant no et queda vides, o si no queden lletres per descubir o sigui que no hi ha guio
@@ -202,6 +202,22 @@ private static void dibujar(int i) {
                 System.out.print(adivinar[i]+" ");
         }
         System.out.println("");
+    }
+
+    
+    /**
+     * Buscar la letra en TODAS las posoiciones del string
+     * Si encuentra la letra la va copiando en la misma posicion de adivinar
+     * debera devolver true en este caso
+     * false si recorre toda la palabra y no la encuentra
+     * @param palabra
+     * @param adivinar
+     * @param letra
+     * @return 
+     */
+    
+    private static boolean marcarLetraEncontradaExiste(String palabra, char[] adivinar, char letra) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
