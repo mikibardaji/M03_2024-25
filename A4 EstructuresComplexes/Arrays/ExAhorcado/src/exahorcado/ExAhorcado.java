@@ -4,6 +4,7 @@
  */
 package exahorcado;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -18,32 +19,59 @@ public class ExAhorcado {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-  //        El programa demanara inicialment la paraula i la guardara a un String.      
+  //    El programa demanara inicialment la paraula i la guardara a un String.      
         String palabra;
         System.out.println("Pon la palabra a buscar");
-        palabra = sc.next().toLowerCase();
+        palabra = sc.next().toUpperCase();
         
 ////Despres creara un array de char de la mateixa longitud de la paraula escrita e inicializar a guions '-'
         char[] adivinar = new char[palabra.length()];
         inicializarGuions(adivinar);
         boolean adivinado = false;
+        int vidas = 7;
         
-        
-       // do
-      //  {
+        do
+        {
       //En cada torn es mostrara tot el array , amb els _ o les lletres encertades.
            mostrarPalabraGuiones(adivinar); 
            //Es demanara una lletra.
            System.out.print("Que letra quieres? "); 
-           char letra = sc.next().charAt(0);
+           char letra = sc.next().toUpperCase().charAt(0); //l'agafara amb majuscula
           //Es buscara al String en quina posició hi es la lletra i si existeix, es ficarà aquella lletra a la posició del array de char (teniu en compte que aquella lletra pot apareixer més d'un cop)  
            boolean encontrado = marcarLetraEncontradaExiste(palabra, adivinar, letra);
-
-          
+           if (!encontrado)
+           {
+               vidas--;
+               dibujar(vidas);
+           }
+           else
+           {
+               System.out.println("Existe la letra");
+               mostrarPalabraGuiones(adivinar); 
+           }
+           char[] palabraString = palabra.toCharArray();
+           
+           adivinado = Arrays.equals(adivinar, palabraString);
+//           if (Arrays.equals(adivinar, palabraString))
+//           {
+//               adivinado = true;
+//           }
+//           else
+//           {
+//               adivinado = false;
+//           }
+           //adivinado = palabraAcertada(adivinar);
             
-       // }while(!adivinado);
+        }while(vidas>0 && !adivinado);
         
-
+        if (vidas==0)
+        {
+            System.out.println("PALMASTE!!!");
+        }
+        else
+        {
+            System.out.println("GANASTE!!!!!");
+        }
 
 //
 //En cada torn :
@@ -189,6 +217,7 @@ private static void dibujar(int i) {
                 System.out.println("GAME OVER");
                 break;
         }
+        System.out.println("Vidas restantes: "+ i);
     }    
 
     private static void inicializarGuions(char[] adivinar) {
@@ -217,7 +246,31 @@ private static void dibujar(int i) {
      */
     
     private static boolean marcarLetraEncontradaExiste(String palabra, char[] adivinar, char letra) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean encontrado=false;
+        for (int i = 0; i < palabra.length(); i++) {
+           if(palabra.charAt(i)==letra)
+           {
+               adivinar[i] = letra;
+               encontrado=true;
+           }
+        }
+        return encontrado;
+    }
+
+    
+    private static boolean palabraAcertada(char[] adivinar) {
+       boolean acertado=true;
+       int i=0;
+       while(i<adivinar.length)
+       {
+           if (adivinar[i]=='_')
+           {
+               acertado = false;
+               return acertado;
+           }
+           i++;
+       }
+       return acertado; 
     }
 
 }
