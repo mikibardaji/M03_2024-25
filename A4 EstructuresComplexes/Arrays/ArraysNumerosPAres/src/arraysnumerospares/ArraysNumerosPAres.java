@@ -62,8 +62,13 @@ public class ArraysNumerosPAres {
                     //recorrro desde el principio y si lo encuentro
                     //no hago nada y si no lo encuentro (encuentro un 0)
                     //lo pongo
-                    pares[i_pares] = aleatorios[i_aleatorios];
-                    i_pares++;
+                    boolean encontrado = encontrarNumero(pares,aleatorios[i_aleatorios] );
+                    if (!encontrado)
+                    { //no existia lo añado
+                        pares[i_pares] = aleatorios[i_aleatorios];
+                        i_pares++;
+                    }
+                    
                 }
             }
     }
@@ -84,6 +89,17 @@ public class ArraysNumerosPAres {
                 //al primer 0 que me he encontrado
             }
         }
+        System.out.println("");
+    }
+
+    private static boolean encontrarNumero(int[] pares, int aleatorio) {
+        for (int numero : pares) {
+            if (numero==aleatorio)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     
 }

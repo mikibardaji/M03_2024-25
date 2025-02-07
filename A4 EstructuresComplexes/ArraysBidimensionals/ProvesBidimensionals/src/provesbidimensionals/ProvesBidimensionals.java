@@ -24,6 +24,7 @@ public class ProvesBidimensionals {
         
         introducirNotasAlumno(notas_alumnos);
         mostrarNotas(notas_alumnos);
+        encontrarEstadisticas(notas_alumnos);
         
         
         
@@ -56,6 +57,43 @@ public class ProvesBidimensionals {
             }
             System.out.println("");
         }
+    }
+
+    /**
+     * tengo que buscar la nota minima
+     * la nota maxima
+     * la media por cada alumnos
+     * @param notas_alumnos 
+     */
+    private static void encontrarEstadisticas(int[][] notas_alumnos) {
+        int minima;
+        int maxima;
+        double media;
+        //int total_notas;
+        for (int fila = 0; fila < notas_alumnos.length; fila++) { //alumnos
+            minima = notas_alumnos[fila][0];
+            maxima = notas_alumnos[fila][0];
+            media=0;
+            for (int columna = 0; columna < notas_alumnos[fila].length; columna++) { //notas
+                if (notas_alumnos[fila][columna]<minima)
+                {
+                    minima = notas_alumnos[fila][columna];
+                }
+                if (notas_alumnos[fila][columna]>maxima)
+                {
+                    maxima = notas_alumnos[fila][columna];
+                }
+                media = media + notas_alumnos[fila][columna];
+            }
+            media =  media /notas_alumnos[fila].length;
+            System.out.println("MEdia alumno " + (fila+1) + "= " + media);
+            System.out.println("Minima-> " + minima);
+            System.out.println("Maxima-> " + maxima);
+        }
+        
+        
+        
+        
     }
     
 }
