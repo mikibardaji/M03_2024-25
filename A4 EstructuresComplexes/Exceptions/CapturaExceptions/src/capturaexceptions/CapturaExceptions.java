@@ -21,29 +21,33 @@ public class CapturaExceptions {
     public static void main(String[] args) {
        
        
+        try {
             //capturaExceptionIndividual();
             //capturaExceptionColectiva();
             //capturaExceptionGenerica();
-
+            
+            /* Captura Exception que se ha lanzado para arriba
             try{
-                lanzarExceptionArriba();
+            lanzarExceptionArriba();
             }
             catch(InputMismatchException ex)
             {
-                System.out.println("No has puesto un valor valido");
+            System.out.println("No has puesto un valor valido");
             }
             catch(ArithmeticException ex)
             {
-                System.out.println("División por 0 no permitida");
-            }
+            System.out.println("División por 0 no permitida");
+            }*/
             
-        
-
-
-
-
-        
-        
+            String frase = "hol";
+            
+            //recortarFraseAcuatroCaracteres(frase); //tirar Exceoption generica
+            recortarFraseAcuatroCaracteresExceptionpropia(frase);
+        } catch (InvalidLengthStringException ex) {
+            System.out.println(ex.getMessage());
+        }
+           
+  
     }
 
     private static void capturaExceptionIndividual() {
@@ -51,7 +55,7 @@ public class CapturaExceptions {
         int a = 5;
         int b ;
         int c;
-         try
+        try
         {
         System.out.println("Pon un valor para b");
         b = sc.nextInt();
@@ -135,6 +139,41 @@ public class CapturaExceptions {
        
         c = a/b;
         System.out.println(c);
+    }
+
+    /**
+     * Metodo que imprime un string de las primeras 4 caracteres de la frase 
+     * @param frase 
+     */
+    private static void recortarFraseAcuatroCaracteres(String frase) 
+            throws Exception {
+     //   throw new UnsupportedOperationException("Not supported yet.");
+        if (frase.length()>=4)
+        { //ok
+            System.out.println("Recortada " + frase.substring(0, 4));
+        }
+        else
+        { //es mas corta
+            //función no esta preparada para hacer
+            //avisa con una excepcion
+            throw new Exception("String debe tener almenos 4 caracteres");
+        }
+     
+    }
+
+    private static void recortarFraseAcuatroCaracteresExceptionpropia(String frase) 
+            throws InvalidLengthStringException {
+     //   throw new UnsupportedOperationException("Not supported yet.");
+        if (frase.length()>=4)
+        { //ok
+            System.out.println("Recortada " + frase.substring(0, 4));
+        }
+        else
+        { //es mas corta
+            //función no esta preparada para hacer
+            //avisa con una excepcion
+            throw new InvalidLengthStringException("Longitud erronea " + frase.length());
+        }
     }
     
 }
