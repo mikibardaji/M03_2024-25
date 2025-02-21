@@ -17,6 +17,10 @@ public class Coche {
         this.matricula = matricula;
     }
 
+    public Coche(int matricula)
+    {
+        this.matricula = matricula;
+    }
     public String getMarca() {
         return marca;
     }

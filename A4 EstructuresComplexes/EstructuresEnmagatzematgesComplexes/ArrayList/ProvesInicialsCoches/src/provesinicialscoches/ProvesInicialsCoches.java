@@ -42,7 +42,7 @@ public class ProvesInicialsCoches {
         }
         
         Coche buscar = new Coche("Porsche",12); 
-        if(datos.contains(buscar))
+        if(datos.contains(buscar)) //ho trobava 
         {
             System.out.println("Existe en tu lista");
         }
@@ -60,6 +60,28 @@ public class ProvesInicialsCoches {
         {
             System.out.println("No existe en tu lista");
         }
+        
+        datos.remove(0); //el primer de la llista
+        //  datos.add(new Coche("Ferrari", 4));
+        Coche delete = new Coche(4);
+       
+        Coche deleted = datos.remove(datos.indexOf(delete));
+        System.out.println("Borrado" + deleted);
+        System.out.println("Borro el 112");
+        for (Coche car2 : datos) { //es que no saps el index/posicio
+            System.out.println(car2); //perque Integer te implementat el ToString
+            //System.out.println(numero.toString());
+        }
+        
+        datos.add(2, new Coche("Tesla", 100));
+        for (Coche car2 : datos) { //es que no saps el index/posicio
+            System.out.println(car2); //perque Integer te implementat el ToString
+            //System.out.println(numero.toString());
+        }
+        
+        
+        System.out.println(datos);
+        
     }
     
 }
