@@ -8,13 +8,19 @@ package Objectes;
  *
  * @author mabardaji
  */
-public class Coche {
+public class Coche implements Comparable<Coche> {
     private String marca;
     private int matricula;
+    private int anys_antiguetat;
 
     public Coche(String marca, int matricula) {
         this.marca = marca;
         this.matricula = matricula;
+        this.anys_antiguetat = matricula+3;
+    }
+
+    public int getAnys_antiguetat() {
+        return anys_antiguetat;
     }
 
     public Coche(int matricula)
@@ -39,7 +45,7 @@ public class Coche {
 
     @Override
     public String toString() {
-        return "Tienes un coche " + marca + " y su matricula es" + matricula;
+        return "Coche " + marca + " matricula " + matricula + " años: " + anys_antiguetat;
     }
 
 
@@ -66,6 +72,15 @@ public class Coche {
 //        }
         return this.matricula == other.matricula; //int ==
         //marca equals
+    }
+
+    /*
+    retorna -1, 0 , 1 si un es mes gran o mes petit o igual (0)
+    */
+    @Override
+    public int compareTo(Coche o) {
+        return this.matricula - o.matricula;
+        //return this.marca.compareTo(o.marca);
     }
     
     

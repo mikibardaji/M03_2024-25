@@ -5,7 +5,11 @@
 package provesinicialscoches;
 
 import Objectes.Coche;
+import Objectes.SortByAnysCoche;
+import Objectes.SortByMarcaCoche;
+import Objectes.SortByMatricula;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -82,6 +86,41 @@ public class ProvesInicialsCoches {
         
         System.out.println(datos);
         
+        //crida al metode Static de colletions.sort
+        Collections.sort(datos); //si té el metode compareTo implementat i l'ordena       
+        System.out.println("Lista ordenada");
+        for (Coche car2 : datos) { //es que no saps el index/posicio
+            System.out.println(car2); //perque Integer te implementat el ToString
+            //System.out.println(numero.toString());
+        }        
+        
+        Collections.sort(datos, Collections.reverseOrder());//
+        System.out.println("Lista descendiente");
+        for (Coche car2 : datos) { //es que no saps el index/posicio
+            System.out.println(car2); //perque Integer te implementat el ToString
+            //System.out.println(numero.toString());
+        } 
+        
+        Collections.sort(datos, new SortByAnysCoche());
+        System.out.println("Ordenacio per anys ");
+        for (Coche car2 : datos) { //es que no saps el index/posicio
+            System.out.println(car2); //perque Integer te implementat el ToString
+            //System.out.println(numero.toString());
+        }         
+        
+        Collections.sort(datos, new SortByMarcaCoche());
+        System.out.println("Ordenacio per Marca ");
+        for (Coche car2 : datos) { //es que no saps el index/posicio
+            System.out.println(car2); //perque Integer te implementat el ToString
+            //System.out.println(numero.toString());
+        } 
+        
+        Collections.sort(datos, new SortByMatricula());
+        System.out.println("Ordenacio per matricula ");
+        for (Coche car2 : datos) { //es que no saps el index/posicio
+            System.out.println(car2); //perque Integer te implementat el ToString
+            //System.out.println(numero.toString());
+        } 
     }
     
 }
