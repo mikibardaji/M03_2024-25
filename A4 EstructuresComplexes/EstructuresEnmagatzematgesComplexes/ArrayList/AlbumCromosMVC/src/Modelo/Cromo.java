@@ -40,6 +40,14 @@ public class Cromo {
             throw new NumIncorrectException();
     }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setTipo(TipoBrawler tipo) {
+        this.tipo = tipo;
+    }
+
 
 
     @Override
