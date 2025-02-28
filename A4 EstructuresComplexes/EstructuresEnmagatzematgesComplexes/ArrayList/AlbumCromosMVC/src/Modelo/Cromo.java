@@ -74,7 +74,7 @@ public class Cromo {
         sb.append(nom);
         sb.append(", tipo");
         sb.append(tipo.toString());
-        sb.append("\n");
+        //sb.append("\n");
         return sb.toString();
     }
     

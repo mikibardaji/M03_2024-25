@@ -151,4 +151,19 @@ public class AlbumCromoDAO {
     {
         return album.size();
     }
+
+    public int cromosRepes()
+    {
+        return caixa_repes.size();
+    }
+
+    public List<Cromo> getAlbum() {
+        return album;
+    }
+
+    public List<Cromo> getCaixa_repes() {
+        return caixa_repes;
+    }
+    
+    
 }
