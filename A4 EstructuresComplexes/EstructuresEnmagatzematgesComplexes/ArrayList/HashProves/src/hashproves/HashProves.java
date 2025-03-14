@@ -60,7 +60,6 @@ public class HashProves {
             System.out.println(nota1);
         }
         
-        notes_classe.re
        
     }
 

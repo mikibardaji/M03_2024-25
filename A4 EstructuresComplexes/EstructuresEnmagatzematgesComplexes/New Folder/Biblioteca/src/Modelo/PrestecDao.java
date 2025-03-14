@@ -32,9 +32,17 @@ public class PrestecDao {
         
         //añado el libro 
         //si existe añado libro
-        return Prestec.get(add).add(titulo);
-        
+        return Prestec.get(add).add(titulo);  
     }
-    
-    
+
+    public Set<String> ListaLibrosPrestados(Persona found) {
+        if (!Prestec.containsKey(found))
+        {
+            return new HashSet<>(); //conjunt buit
+        }
+        else
+            return Prestec.get(found);
+        
+       // return Prestec.getOrDefault(found, new HashSet<String>());
+    }
 }

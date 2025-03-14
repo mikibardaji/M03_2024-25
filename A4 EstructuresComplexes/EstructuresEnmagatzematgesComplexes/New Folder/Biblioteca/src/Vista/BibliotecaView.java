@@ -9,6 +9,7 @@ import Modelo.Persona;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * Ara mateix no seria necessari aquesta opció, es podria fer tot al main.
@@ -80,4 +81,21 @@ public class BibliotecaView {
             System.out.println(iterator.next());
         }
     }*/
+
+    public String pedirDNI() {
+         String DNI,nombre;
+
+        
+        System.out.print("Dime DNI de usuario: ");
+        DNI = sc.nextLine();
+        return DNI;
+    }
+
+    public void ListarLibros(Set<String> Libros) {
+        for (String titulo : Libros) {
+            System.out.println(titulo);
+        }
+        System.out.println("Libros mostrados: " + Libros.size());
+        
+    }
 }

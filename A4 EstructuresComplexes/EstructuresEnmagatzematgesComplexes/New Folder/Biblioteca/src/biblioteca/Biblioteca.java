@@ -10,6 +10,7 @@ import Vista.BibliotecaView;
 import Vista.Menu;
 import Vista.OptionDuplicateException;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -67,7 +68,11 @@ public class Biblioteca {
                 }
                 else if (opcion_menu == 3)
                 {
-//                    String usuari = vista.pedirUsuario();
+                    String DNI = vista.pedirDNI();
+                    //Persona found = vista.DatosPersona();
+                    Persona found = new Persona(DNI, "Inventado");
+                    Set<String> Libros = coleccion.ListaLibrosPrestados(found);
+                    vista.ListarLibros(Libros);
 //                    List<VideoTikTok> listaTotal = coleccion.llistarVideosUsuariPopulars(usuari);
 //                    vista.mostrarMensaje("Lista videos mas populares" + usuari);
 //                    vista.listado(listaTotal);
@@ -96,7 +101,7 @@ public class Biblioteca {
         try {
             men.addOption("Afegir Llibre");
             men.addOption("Tornar Llibre");
-            men.addOption("Llistar Llibre");
+            men.addOption("Llistar Llibre Prestat Usuari");
             men.addOption("Llibres exclusius usuari");
             men.addOption("Aficions comuns");
         } catch (OptionDuplicateException ex) {
