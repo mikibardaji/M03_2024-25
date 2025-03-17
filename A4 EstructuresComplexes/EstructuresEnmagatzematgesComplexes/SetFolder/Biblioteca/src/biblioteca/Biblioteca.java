@@ -10,6 +10,7 @@ import Vista.BibliotecaView;
 import Vista.Menu;
 import Vista.OptionDuplicateException;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -36,7 +37,8 @@ public class Biblioteca {
             Menu men = new Menu("Menú Tiktok", true);
             
             anyadirOpciones(men);
-            
+            introducirDatos(coleccion);
+           
             do{
                 men.displayMenu();
                 opcion_menu = men.chooseOption();
@@ -53,6 +55,7 @@ public class Biblioteca {
                 }
                 else if (opcion_menu == 2)
                 {
+                    
 //                    VideoTikTok delete = vista.newVideo();
 //                    if (coleccion.eliminarVideo(delete))
 //                    {
@@ -79,6 +82,13 @@ public class Biblioteca {
                 }
                 else if (opcion_menu == 4)
                 {
+                    //fase Pedir Datos entrada (opcional)
+                    String DNI = vista.pedirDNI();
+                    Persona p = new Persona(DNI, "Si");
+                    //interaccion con modelo y con los datos de entrada si hay (Obligatorio)
+                    Set<String> LibrosUnicos = coleccion.encontrarLibrosUnicos(p);
+                    //mostrar resultado final (Obligatorio)
+                    vista.ListarLibros(LibrosUnicos);
 //                    String usuari = vista.pedirUsuario();
 //                    List<VideoTikTok> listaTotal = coleccion.llistarVideosUsuariTitol(usuari);
 //                    vista.mostrarMensaje("Lista videos Titulo" + usuari);
@@ -90,6 +100,15 @@ public class Biblioteca {
 //                    List<VideoTikTok> listaTotal = coleccion.llistarVideosDurada(usuari);
 //                    vista.mostrarMensaje("Lista videos duracion" + usuari);
 //                    vista.listadoIterator(listaTotal); //diferent maneres
+                }
+                else if (opcion_menu == 6) /*listar todos los libros prestados*/
+                {
+                    //fase Pedir Datos entrada (opcional)
+                    //NO HAY
+                    //interaccion con modelo y con los datos de entrada si hay (Obligatorio)
+                    Map<String,Integer> todosLibros = coleccion.ListadoPrestamoLibrosBiblioteca();
+                    //mostrar resultado final (Obligatorio)
+                     vista.ListarHasmap(todosLibros);
                 }
             }while (opcion_menu!=0);        
     }
@@ -104,9 +123,30 @@ public class Biblioteca {
             men.addOption("Llistar Llibre Prestat Usuari");
             men.addOption("Llibres exclusius usuari");
             men.addOption("Aficions comuns");
+            men.addOption("Inventario Prestamo por libros");
         } catch (OptionDuplicateException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    private void introducirDatos(PrestecDao coleccion) {
+            Persona uno = new Persona("1", "N1");
+            coleccion.afegirPrestec(uno, "titulo1");
+            coleccion.afegirPrestec(uno, "titulo2");
+            coleccion.afegirPrestec(uno, "titulo3");
+            Persona dos = new Persona("2", "N2");
+            coleccion.afegirPrestec(dos, "titulo1");
+           Persona tres = new Persona("3", "N3");
+            coleccion.afegirPrestec(tres, "titulo3");
+            Persona cuatro = new Persona("4", "N4");
+            coleccion.afegirPrestec(cuatro, "titulo2");
+            coleccion.afegirPrestec(cuatro, "titulo4");
+            coleccion.afegirPrestec(cuatro, "titulo3");
+            Persona cinco = new Persona("5", "N5");
+            coleccion.afegirPrestec(cinco, "titulo10");
+            coleccion.afegirPrestec(cinco, "titulo1");
+            coleccion.afegirPrestec(cinco, "titulo3");
+            
     }
        
 

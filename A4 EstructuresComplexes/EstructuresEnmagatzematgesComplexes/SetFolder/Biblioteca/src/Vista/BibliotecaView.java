@@ -8,6 +8,7 @@ package Vista;
 import Modelo.Persona;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -97,5 +98,15 @@ public class BibliotecaView {
         }
         System.out.println("Libros mostrados: " + Libros.size());
         
+    }
+
+    public void ListarHasmap(Map<String, Integer> todosLibros) {
+        int num=0;
+        for (Map.Entry<String, Integer> libro : todosLibros.entrySet()) {
+            //String key = libro.getKey();
+            System.out.println((++num) + "-" +  libro.getKey() + " se ha prestado " + libro.getValue());
+           // System.out.println("Titulo " + key + " se ha prestado " + libro.);   
+        }
+        System.out.println("Libros mostrados: " + todosLibros.size());
     }
 }

@@ -38,12 +38,24 @@ public class TikTokDAO { //Data Acces Object (collection de objectes)
     }
 
     // Afegir un nou vídeo, independentment de si ja existeix
-    public boolean afegirVideo(VideoTikTok video) {
+    public boolean afegirVideo(VideoTikTok video) throws NotUserInformedException {
         //error enunciat li tinc que assignar un id, i per tant te 
         //que tenir un setter i un getter
-        VideoTikTok add = new VideoTikTok(retornarIdMaxim(),video); //para no tener el SetId
-        //video.setId(retornarIdMaxim()); // Assignem un nou ID
-        return videos.add(video);
+        if (video.getUsuari().isEmpty())
+        {
+            throw new NotUserInformedException();
+        }
+        else if(video.getUsuari().length()< 4)
+        {
+            throw new NotUserInformedException(video.getUsuari());
+        }
+        else
+        {
+            VideoTikTok add = new VideoTikTok(retornarIdMaxim(),video); //para no tener el SetId
+            //video.setId(retornarIdMaxim()); // Assignem un nou ID
+            return videos.add(video);
+        }
+        
     }
 
     // Eliminar el primer vídeo (segons l'ordre d'afegit)

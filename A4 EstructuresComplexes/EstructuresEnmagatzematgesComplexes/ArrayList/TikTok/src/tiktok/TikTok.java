@@ -5,12 +5,15 @@
  */
 package tiktok;
 
+import Objectes.NotUserInformedException;
 import Objectes.TikTokDAO;
 import Objectes.VideoTikTok;
 import Vista.Menu;
 import Vista.OptionDuplicateException;
 import Vista.VideoTikTokView;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -43,10 +46,14 @@ public static void main(String[] args) {
                 men.displayMenu();
                 opcion_menu = men.chooseOption();
                 if (opcion_menu==1)
-                {//pedir datos y añadir video
+                {   try {
+                    //pedir datos y añadir video
                     VideoTikTok add = vista.newVideo(); //quiero todos los datos del video
                     coleccion.afegirVideo(add);
                     vista.mostrarMensaje("Añadido video " + add);
+                    } catch (NotUserInformedException ex) {
+                        vista.mostrarMensaje("vistaha saltado la excepcion" + ex.getMessage());
+                    }
                 }
                 else if (opcion_menu == 2)
                 {
