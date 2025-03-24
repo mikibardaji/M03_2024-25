@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import org.mariadb.jdbc.Connection;
 import org.mariadb.jdbc.Statement;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,6 +30,8 @@ public class ProvesBD {
             //al principi del programa i un sol cop!!
             DBConnect.loadDriver();
             printCountries();
+            
+            insertCountry();
             
             
             
@@ -75,6 +79,32 @@ public class ProvesBD {
             String capital = res.getString("capital");
             Country pais = new Country(id, nom, capital);
             System.out.println(pais);
+        }
+    }
+
+    private void insertCountry() {
+        try {
+            //obtenir una conexió a la bd amb el usuari y password
+            Connection conn = DBConnect.getConnection();
+            if (conn != null)
+            {//si
+                 Statement stmt = conn.createStatement();
+                 String pais1 = "Andorra";
+                 String capital1 = "Andorra la vella";
+                 String query = "Insert into countries (nom, capital) values " +
+                         "('" + pais1+ "','" + capital1 + "')";
+                 System.out.println(query);
+                 int numRowsAffected = stmt.executeUpdate(query);
+                 System.out.println("Insert "+ numRowsAffected);
+                 stmt.close();
+                 conn.close();
+            }
+            else
+            {
+                System.out.println("Conexió nula");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProvesBD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
