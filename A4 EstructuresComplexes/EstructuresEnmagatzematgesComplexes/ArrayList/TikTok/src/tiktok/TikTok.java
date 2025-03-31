@@ -6,7 +6,7 @@
 package tiktok;
 
 import Objectes.NotUserInformedException;
-import Objectes.TikTokDAO;
+import Objectes.TikTokDAODB;
 import Objectes.VideoTikTok;
 import Vista.Menu;
 import Vista.OptionDuplicateException;
@@ -32,7 +32,7 @@ public static void main(String[] args) {
  
             int opcion_menu;
             //Clase Modelo
-            TikTokDAO coleccion = new TikTokDAO();
+            TikTokDAODB coleccion = new TikTokDAODB();
             //clase vista
             //ESTA PARTE AHORA MISMO
             //NO HARIA FALTA, SE PUEDE PONER LOS ESCANNERES Y EL SYSTEM.OUT.PRINTLN
@@ -45,51 +45,55 @@ public static void main(String[] args) {
             do{
                 men.displayMenu();
                 opcion_menu = men.chooseOption();
-                if (opcion_menu==1)
-                {   try {
-                    //pedir datos y añadir video
-                    VideoTikTok add = vista.newVideo(); //quiero todos los datos del video
-                    coleccion.afegirVideo(add);
-                    vista.mostrarMensaje("Añadido video " + add);
-                    } catch (NotUserInformedException ex) {
-                        vista.mostrarMensaje("vistaha saltado la excepcion" + ex.getMessage());
-                    }
-                }
-                else if (opcion_menu == 2)
-                {
-                    VideoTikTok delete = vista.newVideo();
-                    if (coleccion.eliminarVideo(delete))
-                    {
-                        vista.mostrarMensaje("Borrado " + delete.getTitol() + "del usuario " 
-                                + delete.getUsuari());
-                    }
-                    else
-                    {
-                        vista.mostrarMensaje("No se ha encontrado " + delete.getTitol() + "del usuario " 
-                                + delete.getUsuari());
-                    }
-
-                }
-                else if (opcion_menu == 3)
-                {
-                    String usuari = vista.pedirUsuario();
-                    List<VideoTikTok> listaTotal = coleccion.llistarVideosUsuariPopulars(usuari);
-                    vista.mostrarMensaje("Lista videos mas populares" + usuari);
-                    vista.listado(listaTotal);
-                }
-                else if (opcion_menu == 4)
-                {
-                    String usuari = vista.pedirUsuario();
-                    List<VideoTikTok> listaTotal = coleccion.llistarVideosUsuariTitol(usuari);
-                    vista.mostrarMensaje("Lista videos Titulo" + usuari);
-                    vista.listadoGet(listaTotal); //diferents
-                }             
-                else if (opcion_menu == 5)
-                {//Listar Album
-                    String usuari = vista.pedirUsuario();
-                    List<VideoTikTok> listaTotal = coleccion.llistarVideosDurada(usuari);
-                    vista.mostrarMensaje("Lista videos duracion" + usuari);
-                    vista.listadoIterator(listaTotal); //diferent maneres
+                switch (opcion_menu) {
+                    case 1:
+                        try {
+                            //pedir datos y añadir video
+                            VideoTikTok add = vista.newVideo(); //quiero todos los datos del video
+                            coleccion.afegirVideo(add);
+                            vista.mostrarMensaje("Añadido video " + add);
+                        } catch (NotUserInformedException ex) {
+                            vista.mostrarMensaje("vistaha saltado la excepcion" + ex.getMessage());
+                        }   break;
+                    case 2:
+                        VideoTikTok delete = vista.newVideo();
+                        if (coleccion.eliminarVideo(delete))
+                        {
+                            vista.mostrarMensaje("Borrado " + delete.getTitol() + "del usuario "
+                                    + delete.getUsuari());
+                        }
+                        else
+                        {
+                            vista.mostrarMensaje("No se ha encontrado " + delete.getTitol() + "del usuario "
+                                    + delete.getUsuari());
+                        }   break;
+                    case 3:
+                        {
+                            String usuari = vista.pedirUsuario();
+                            List<VideoTikTok> listaTotal = coleccion.llistarVideosUsuariPopulars(usuari);
+                            vista.mostrarMensaje("Lista videos mas populares" + usuari);
+                            vista.listado(listaTotal);
+                            break;
+                        }
+                    case 4:
+                        {
+                            String usuari = vista.pedirUsuario();
+                            List<VideoTikTok> listaTotal = coleccion.llistarVideosUsuariTitol(usuari);
+                            vista.mostrarMensaje("Lista videos Titulo" + usuari);
+                            vista.listadoGet(listaTotal); //diferents
+                            break;
+                        }
+                    case 5:
+                        {
+                            //Listar Album
+                            String usuari = vista.pedirUsuario();
+                            List<VideoTikTok> listaTotal = coleccion.llistarVideosDurada(usuari);
+                            vista.mostrarMensaje("Lista videos duracion" + usuari);
+                            vista.listadoIterator(listaTotal); //diferent maneres
+                            break;
+                        }
+                    default:
+                        break;
                 }
             }while (opcion_menu!=0);
             
