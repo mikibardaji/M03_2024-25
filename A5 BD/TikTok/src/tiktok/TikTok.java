@@ -63,23 +63,34 @@ public static void main(String[] args) {
                         break;
 
                 case 2:
-                    VideoTikTok delete = vista.newVideo();
-                    if (coleccion.eliminarVideo(delete))
-                    {
-                        vista.mostrarMensaje("Borrado " + delete.getTitol() + "del usuario "
-                                + delete.getUsuari());
+                    try {
+                        VideoTikTok delete = vista.newVideo();
+                        int deletes = coleccion.eliminarVideo(delete);
+                        if (deletes>0 )
+                        {
+                            vista.mostrarMensaje("Borrado " + delete.getTitol() + "del usuario "
+                                    + delete.getUsuari() + " habia " + deletes + " videos ");
+                        }
+                        else
+                        {
+                            vista.mostrarMensaje("No se ha encontrado " + delete.getTitol() + "del usuario "
+                                    + delete.getUsuari());
+                        }   
+                    } catch (SQLException ex) {
+                        vista.mostrarMensaje("vistaha saltado la excepcion" + ex.getMessage());
                     }
-                    else
-                    {
-                        vista.mostrarMensaje("No se ha encontrado " + delete.getTitol() + "del usuario "
-                                + delete.getUsuari());
-                    }   break;
+                    
+                    break;
                 case 3:
                 {
+                    try{
                     String usuari = vista.pedirUsuario();
                     List<VideoTikTok> listaTotal = coleccion.llistarVideosUsuariPopulars(usuari);
                     vista.mostrarMensaje("Lista videos mas populares" + usuari);
                     vista.listado(listaTotal);
+                    } catch (SQLException ex) {
+                        vista.mostrarMensaje("vistaha saltado la excepcion" + ex.getMessage());
+                    }
                     break;
                 }
                 case 4:
