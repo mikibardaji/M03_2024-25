@@ -6,6 +6,7 @@
 package Vista;
 
 import Objectes.VideoTikTok;
+import Objectes.Visualitzador;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -71,5 +72,9 @@ public class VideoTikTokView {
         {
             System.out.println(iterator.next());
         }
+    }
+
+    public Visualitzador pedirVisualizador() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
