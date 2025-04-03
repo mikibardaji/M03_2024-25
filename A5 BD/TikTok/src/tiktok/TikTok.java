@@ -6,9 +6,10 @@
 package tiktok;
 
 import Objectes.DBConnect;
-import Objectes.NotUserInformedException;
 import Objectes.TikTokDAODB;
 import Objectes.VideoTikTok;
+import Objectes.Visualitzador;
+import Objectes.VisualitzadorDAO;
 import Vista.Menu;
 import Vista.OptionDuplicateException;
 import Vista.VideoTikTokView;
@@ -38,6 +39,7 @@ public static void main(String[] args) {
         DBConnect.loadDriver();
         //Clase Modelo
         TikTokDAODB coleccion = new TikTokDAODB();
+        VisualitzadorDAO colVisualitzador = new VisualitzadorDAO();
         //clase vista
         //ESTA PARTE AHORA MISMO
         //NO HARIA FALTA, SE PUEDE PONER LOS ESCANNERES Y EL SYSTEM.OUT.PRINTLN
@@ -89,7 +91,7 @@ public static void main(String[] args) {
                     vista.mostrarMensaje("Lista videos mas populares" + usuari);
                     vista.listado(listaTotal);
                     } catch (SQLException ex) {
-                        vista.mostrarMensaje("vistaha saltado la excepcion" + ex.getMessage());
+                        vista.mostrarMensaje("vista ha saltado la excepcion" + ex.getMessage());
                     }
                     break;
                 }
@@ -110,12 +112,29 @@ public static void main(String[] args) {
                     vista.listadoIterator(listaTotal); //diferent maneres
                     break;
                 }
+                case 6:
+                {
+                    //Alta visualitzador
+                    Visualitzador viewer = vista.pedirVisualizador();
+                    if (colVisualitzador.afegirVisualitzador(viewer))
+                    {
+                        vista.mostrarMensaje("afegit " + viewer);
+                    }
+                    else
+                    {
+                        vista.mostrarMensaje("No afegit ");
+                    }
+                    
+                    break;
+                }              
                 default:
                     break;
             }
         }while (opcion_menu!=0);
     } catch (ClassNotFoundException ex) {
         System.out.println(ex.getMessage());
+    } catch (SQLException ex) {
+        Logger.getLogger(TikTok.class.getName()).log(Level.SEVERE, null, ex);
     }
             
 
@@ -128,6 +147,8 @@ public static void main(String[] args) {
             men.addOption("Videos mes populars Usuari");
             men.addOption("Videos titol");
             men.addOption("Ordenació duració Usuari");
+            men.addOption("Afegir Visualitzador");
+            men.addOption("Donar like");
         } catch (OptionDuplicateException ex) {
             System.out.println(ex.getMessage());
         }
