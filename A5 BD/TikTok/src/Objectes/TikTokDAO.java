@@ -62,7 +62,7 @@ public class TikTokDAO { //Data Acces Object (collection de objectes)
     public VideoTikTok eliminarVideo() throws NoVideoListException {
         if (!videos.isEmpty()) {
             //return videos.remove(0);
-            return videos.removeFirst();
+            return videos.remove(0);
         }
         else
             throw new NoVideoListException();

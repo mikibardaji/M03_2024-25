@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Objectes.Like;
 import Objectes.VideoTikTok;
 import Objectes.Visualitzador;
 import java.util.Iterator;
@@ -75,6 +76,20 @@ public class VideoTikTokView {
     }
 
     public Visualitzador pedirVisualizador() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String nick,nom;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Dime nombre de usuario: ");
+        nom = sc.nextLine();
+
+        System.out.print("Dime nick visualizador: ");
+        nick = sc.nextLine();
+
+        Visualitzador add = new Visualitzador(nom, nick);
+        return add;
+    }
+
+    public Like datosLike() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -6,6 +6,8 @@
 package tiktok;
 
 import Objectes.DBConnect;
+import Objectes.Like;
+import Objectes.LikeDAO;
 import Objectes.TikTokDAODB;
 import Objectes.VideoTikTok;
 import Objectes.Visualitzador;
@@ -40,6 +42,7 @@ public static void main(String[] args) {
         //Clase Modelo
         TikTokDAODB coleccion = new TikTokDAODB();
         VisualitzadorDAO colVisualitzador = new VisualitzadorDAO();
+        LikeDAO LikeDB = new LikeDAO();
         //clase vista
         //ESTA PARTE AHORA MISMO
         //NO HARIA FALTA, SE PUEDE PONER LOS ESCANNERES Y EL SYSTEM.OUT.PRINTLN
@@ -126,7 +129,22 @@ public static void main(String[] args) {
                     }
                     
                     break;
-                }              
+                }
+                case 7:
+                {
+                    //Alta visualitzador
+                    Like meGusta = vista.datosLike();
+                    if ((LikeDB.afegirLike(meGusta)))
+                    {
+                        vista.mostrarMensaje("afegit " + meGusta);
+                    }
+                    else
+                    {
+                        vista.mostrarMensaje("No afegit ");
+                    }
+                    
+                    break;
+                }                 
                 default:
                     break;
             }

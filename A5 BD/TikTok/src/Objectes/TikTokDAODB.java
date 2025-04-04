@@ -31,6 +31,8 @@ public class TikTokDAODB { //Data Acces Object (collection de objectes)
 
     // Mètode privat per trobar el màxim ID
     private int retornarIdMaxim() {
+        
+        //select max
             return 0;
     }
 
@@ -136,6 +138,25 @@ public class TikTokDAODB { //Data Acces Object (collection de objectes)
     // Mètode per modificar els atributs editables d'un vídeo a TikTok
     public boolean modificarVideo(VideoTikTok video, String nouTitol, int nousMAgradan) {
             return true;
+    }
+
+    int getIdVideo(String nomVideo) throws SQLException {
+        
+               
+        String sql = "SELECT id FROM VIDEOS " + 
+                "WHERE titol = ? ";
+        //obtenir una conexió a la bd amb el usuari y password
+        conn = DBConnect.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, nomVideo);
+        
+        ResultSet rs  = pstmt.executeQuery();
+        if (rs.next())
+        {
+            return rs.getInt("id");
+
+        }
+        return -1;        
     }
     
 }
