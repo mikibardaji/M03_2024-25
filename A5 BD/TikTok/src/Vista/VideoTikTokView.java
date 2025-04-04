@@ -5,7 +5,7 @@
  */
 package Vista;
 
-import Objectes.Like;
+import Objectes.Comment;
 import Objectes.VideoTikTok;
 import Objectes.Visualitzador;
 import java.util.Iterator;
@@ -89,7 +89,19 @@ public class VideoTikTokView {
         return add;
     }
 
-    public Like datosLike() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Comment datosComment() {
+        String nick,titulo,comentario;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Dime nick de usuario: ");
+        nick = sc.nextLine();
+
+        System.out.print("Dime titulo del video a comentar: ");
+        titulo = sc.nextLine();
+
+        System.out.print("Dime comentario: ");
+        comentario = sc.nextLine();        
+        Comment add = new Comment(nick, titulo, comentario);
+        return add;
     }
 }

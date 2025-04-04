@@ -6,8 +6,8 @@
 package tiktok;
 
 import Objectes.DBConnect;
-import Objectes.Like;
-import Objectes.LikeDAO;
+import Objectes.Comment;
+import Objectes.CommentDAO;
 import Objectes.TikTokDAODB;
 import Objectes.VideoTikTok;
 import Objectes.Visualitzador;
@@ -42,7 +42,7 @@ public static void main(String[] args) {
         //Clase Modelo
         TikTokDAODB coleccion = new TikTokDAODB();
         VisualitzadorDAO colVisualitzador = new VisualitzadorDAO();
-        LikeDAO LikeDB = new LikeDAO();
+        CommentDAO LikeDB = new CommentDAO();
         //clase vista
         //ESTA PARTE AHORA MISMO
         //NO HARIA FALTA, SE PUEDE PONER LOS ESCANNERES Y EL SYSTEM.OUT.PRINTLN
@@ -133,8 +133,8 @@ public static void main(String[] args) {
                 case 7:
                 {
                     //Alta visualitzador
-                    Like meGusta = vista.datosLike();
-                    if ((LikeDB.afegirLike(meGusta)))
+                    Comment meGusta = vista.datosComment();
+                    if ((LikeDB.afegirComentari(meGusta)))
                     {
                         vista.mostrarMensaje("afegit " + meGusta);
                     }
@@ -166,7 +166,7 @@ public static void main(String[] args) {
             men.addOption("Videos titol");
             men.addOption("Ordenació duració Usuari");
             men.addOption("Afegir Visualitzador");
-            men.addOption("Donar like");
+            men.addOption("Afegir Comentari");
         } catch (OptionDuplicateException ex) {
             System.out.println(ex.getMessage());
         }
