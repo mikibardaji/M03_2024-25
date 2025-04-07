@@ -3,24 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="ArrayList">
-            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A4%20EstructuresComplexes/EstructuresEnmagatzematgesComplexes/ArrayList/TikTok/src/Objectes/NotUserInformedException.java</file>
-            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A4%20EstructuresComplexes/EstructuresEnmagatzematgesComplexes/ArrayList/TikTok/src/Objectes/TikTokDAO_1.java</file>
-            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A4%20EstructuresComplexes/EstructuresEnmagatzematgesComplexes/ArrayList/TikTok/src/Objectes/VideoDuracio.java</file>
-            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A4%20EstructuresComplexes/EstructuresEnmagatzematgesComplexes/ArrayList/TikTok/src/Objectes/TikTokDAODB.java</file>
-            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A4%20EstructuresComplexes/EstructuresEnmagatzematgesComplexes/ArrayList/TikTok/src/tiktok/TikTok.java</file>
-            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A4%20EstructuresComplexes/EstructuresEnmagatzematgesComplexes/ArrayList/TikTok/src/Objectes/TikTokDAO.java</file>
-            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A4%20EstructuresComplexes/EstructuresEnmagatzematgesComplexes/ArrayList/TikTok/src/Objectes/VideoTiktokTitol.java</file>
-            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A4%20EstructuresComplexes/EstructuresEnmagatzematgesComplexes/ArrayList/TikTok/src/Objectes/VideoTikTok.java</file>
-        </group>
-        <group name="A2-PE2">
-            <file>file:/C:/Users/usuari/Documents/clonacio_m03/A5%20BD/TikTok/src/Objectes/Like.java</file>
-            <file>file:/C:/Users/usuari/Documents/clonacio_m03/A5%20BD/TikTok/src/Objectes/VisualitzadorDAO.java</file>
-            <file>file:/C:/Users/usuari/Documents/clonacio_m03/A5%20BD/TikTok/src/Vista/VideoTikTokView.java</file>
-            <file>file:/C:/Users/usuari/Documents/clonacio_m03/A5%20BD/TikTok/src/Objectes/TikTokDAO.java</file>
-            <file>file:/C:/Users/usuari/Documents/clonacio_m03/A5%20BD/TikTok/src/tiktok/TikTok.java</file>
-            <file>file:/C:/Users/usuari/Documents/clonacio_m03/A5%20BD/TikTok/src/Objectes/VideoTiktokTitol.java</file>
-            <file>file:/C:/Users/usuari/Documents/clonacio_m03/A5%20BD/TikTok/src/Objectes/TikTokDAODB.java</file>
-            <file>file:/C:/Users/usuari/Documents/clonacio_m03/A5%20BD/TikTok/src/Objectes/LikeDAO.java</file>
+            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A5%20BD/TikTok/src/Objectes/VideoTikTok.java</file>
+            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A5%20BD/TikTok/src/Objectes/TikTokDAO.java</file>
+            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A5%20BD/TikTok/src/tiktok/TikTok.java</file>
+            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A5%20BD/TikTok/src/Vista/VideoTikTokView.java</file>
+            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A5%20BD/TikTok/src/Objectes/TikTokDAODB.java</file>
+            <file>file:/C:/Users/mabardaji/Downloads/m03_2025/A5%20BD/TikTok/src/Objectes/DBConnect.java</file>
         </group>
     </open-files>
 </project-private>
