@@ -11,7 +11,7 @@ CREATE TABLE entrenadors(
 );
 
 CREATE TABLE pokemons(
-id_pokedex INT PRIMARY KEY,
+    num_pokedex INT PRIMARY KEY,
     nom VARCHAR(50) UNIQUE,
     tipo VARCHAR(50)
 );
@@ -22,7 +22,7 @@ CREATE TABLE capturas (
     cp INT,
     PRIMARY KEY (trainer_id, pokemon_id),
     FOREIGN KEY (trainer_id) REFERENCES entrenadors(id),
-    FOREIGN KEY (pokemon_id) REFERENCES pokemons(id_pokedex)
+    FOREIGN KEY (pokemon_id) REFERENCES pokemons(num_pokedex)
 ) ENGINE=InnoDB;
 
 
@@ -33,7 +33,7 @@ VALUES
     ('BrockRocks', 'rockgym789');
 
 
-INSERT INTO pokemons (id_pokedex, nom, tipo) 
+INSERT INTO pokemons (num_pokedex, nom, tipo) 
 VALUES 
     (25, 'Pikachu', 'Eléctrico'),   -- Pikachu es el #25
     (1, 'Bulbasaur', 'Planta'),     -- Bulbasaur es el #1

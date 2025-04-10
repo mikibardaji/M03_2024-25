@@ -80,7 +80,8 @@ public class PokemonDAO {
         return pokemons;
     }
     
-    public void tancarConexió() throws SQLException
+    
+    public void tancarConexio() throws SQLException
     {
         conn.close();
     }

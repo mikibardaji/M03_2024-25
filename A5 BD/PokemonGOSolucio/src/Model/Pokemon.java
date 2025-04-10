@@ -88,4 +88,15 @@ public class Pokemon {
         Random rd = new Random();
         return rd.nextInt(10,fuerzaMaxima+1);
     }
+    
+    /**
+     * Metode static que a partir de la força que te el pokemon pensa el numero pel qual serà captura
+     * @param CP Força pokemon
+     * @return enter amb el que serà captura
+     */
+    public static int numeroCaptura(int CP)
+    {
+        Random rd = new Random();
+        return rd.nextInt(1,CP%10);
+    }
 }

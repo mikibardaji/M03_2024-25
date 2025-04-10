@@ -60,7 +60,7 @@ public class CapturaDAO {
     }
     
     
-    public void tancarConexió() throws SQLException
+    public void tancarConexio() throws SQLException
     {
         conn.close();
     }

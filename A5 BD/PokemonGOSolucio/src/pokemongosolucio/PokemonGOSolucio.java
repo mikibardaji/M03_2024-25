@@ -9,8 +9,9 @@ import BD.DBConnect;
 import DAO.CapturaDAO;
 import DAO.EntrenadorDAO;
 import DAO.PokemonDAO;
+import Vista.Menu;
+import Vista.OptionDuplicateException;
 import Vista.VistaConsola;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -39,20 +40,21 @@ public class PokemonGOSolucio {
             //al principi del programa i un sol cop!!
             DBConnect.loadDriver();
 
-            // Crear instÃ ncies de la vista i DAO
+            // Crear inst? ncies de la vista i DAO
             
             try {
-                //inicializo DAO
+                //inicializo DAO LA SOLUCIÓ CORRECTA
+                //SERIA UN DAO SUPERIOR QUE DINS TINGUES LES 3 VARIABLES
                 EntrenadorDAO daoEntrenadors = new EntrenadorDAO();
                 PokemonDAO daoPokemon = new PokemonDAO();
                 CapturaDAO daoCaptura = new CapturaDAO();
                 // Mostrar benvinguda inicial
-                vista.mostrarMissatge("Benvingut al PokÃ©mon Go Cutre-Java!");
+                vista.mostrarMissatge("Benvingut al Pok?©mon Go Cutre-Java!");
                 
                 // FASE 4: Demanar credencials a l'usuari, que ara retorna un objecte Entrenador
                 Entrenador entrenador_login = vista.demanarCredencials();
                 
-                boolean login = validaciÃ³nLogin(daoEntrenadors, vista, entrenador_login);
+                boolean login = validacionLogin(daoEntrenadors, vista, entrenador_login);
                
                 
                 if(!login)
@@ -61,8 +63,12 @@ public class PokemonGOSolucio {
                 }
                 else
                 {
-                    vista.mostrarMenu();
-                    int opcio = vista.demanarOpcioMenu();
+                    Menu men = new Menu("Menú Tiktok", true);
+        
+                    anyadirOpciones(men, vista);
+                    men.displayMenu();
+                    //vista.mostrarMenu();
+                    int opcio = men.chooseOption();
                     
                     do{
                         switch (opcio) {
@@ -92,19 +98,18 @@ public class PokemonGOSolucio {
                                 break;
                             case 6:
                                 // Capturar Pokemon
-                                Pokemon pok = daoPokemon.getPokemonRandom();
-                                vista.mostrarMissatge(pok.toString());
-                                int CP = Pokemon.fuerzaPokemon(100);
-                                vista.mostrarMissatge("Fuerza Pokemon... " + CP);
-                                daoCaptura.darCaptura(entrenador_login.getId(), pok.getNumeroPokedex(), CP);
+                                capturaPokemon(daoPokemon, daoCaptura, vista,entrenador_login);
                             default:
-                                vista.mostrarMissatge("OpciÃ³ no vÃ lida.");
+                                vista.mostrarMissatge("Opcio no valida.");
                                 break;
                         }
                     }while(opcio!=0);
                     vista.mostrarMissatge("Sortint programa");
+                    daoCaptura.tancarConexio();
+                    daoEntrenadors.tancarConexio();
+                    daoPokemon.tancarConexio();
                 }
-                // Mostrar el menÃº i gestionar les opcions
+                // Mostrar el men?º i gestionar les opcions
                 
             } catch (SQLException ex) {
                 vista.mostrarMissatge("Error: " + ex.getMessage());
@@ -171,14 +176,14 @@ public class PokemonGOSolucio {
                                  daoEntrenadors.altaEntrenador(nouEntrenador);
                                  vista.mostrarMissatgeRegistrat(nouEntrenador.getNom());   
                                 } else {
-                                    vista.mostrarMissatge("El nom d'usuari ja estÃ  en Ãºs.");
+                                    vista.mostrarMissatge("El nom d'usuari ja est?  en ?ºs.");
                                 }
                         } catch (Exception e) {
                                         vista.mostrarMissatge("Error: " + e.getMessage());
                                     }
 }
 
-    private boolean validaciÃ³nLogin(EntrenadorDAO daoEntrenadors, VistaConsola vista, Entrenador entrenador_login) {
+    private boolean validacionLogin(EntrenadorDAO daoEntrenadors, VistaConsola vista, Entrenador entrenador_login) {
         try {
             boolean login=true;
             // Comprovar si l'entrenador_login ja existeix
@@ -206,6 +211,54 @@ public class PokemonGOSolucio {
             vista.mostrarMissatge("error login "+ ex.getMessage()); //aqui no ho tiro cap a dalt perque ja estic al main
             return false;
         }
+    }
+
+    private void anyadirOpciones(Menu men, VistaConsola vista) {
+        try {
+            men.addOption("Donar-se d'alta com a entrenador");
+            men.addOption("Donar-se de baixa com a entrenador");
+            men.addOption("Consultar dades d'entrenador");
+            men.addOption("Llistar entrenadors");
+            men.addOption("Donar d'alta PokéMoìn");
+            men.addOption("Cazar PokéMoìn");
+            men.addOption("Llistar PokéMoìns capturats");
+            men.addOption("Llistar tipus de PokéMoìn");
+        } catch (OptionDuplicateException ex) {
+            vista.mostrarMissatge(ex.getMessage());
+        }
+    }
+
+    private void capturaPokemon(PokemonDAO daoPokemon, CapturaDAO daoCaptura, VistaConsola vista, Entrenador login) throws SQLException {
+        Pokemon pok = daoPokemon.getPokemonRandom();
+        vista.mostrarMissatge(pok.toString());
+        int CP = Pokemon.fuerzaPokemon(100);
+        vista.mostrarMissatge("Fuerza Pokemon... " + CP);
+        if (capturaDo(CP, vista))
+        {
+            daoCaptura.darCaptura(login.getId(), pok.getNumeroPokedex(), CP);
+            vista.mostrarMissatge("Capturat " + pok);
+        }
+        else
+        {
+            vista.mostrarMissatge("S'ha escapat " + pok);
+        }
+        
+        
+        
+    }
+
+    private boolean capturaDo(int CP, VistaConsola vista) {
+        int num = Pokemon.numeroCaptura(CP);
+        int valor, intentos = 2;
+        while(intentos>0)
+        {
+            valor =vista.datosAtaque(CP%10);
+            if (valor != num)
+            {//resto intent
+                intentos--;
+            }
+        }
+        return intentos >0;
     }
     
     

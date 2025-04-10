@@ -17,7 +17,7 @@ public class VistaConsola {
         scanner = new Scanner(System.in);
     }
 
-    // M√®tode per demanar el nom d'usuari i contrasenya
+    // M?®tode per demanar el nom d'usuari i contrasenya
     public Entrenador demanarCredencials() {
         System.out.print("Introdueix el teu nom d'usuari: ");
         String username = scanner.nextLine();
@@ -25,48 +25,53 @@ public class VistaConsola {
         System.out.print("Introdueix la teva contrasenya: ");
         String password = scanner.nextLine();
 
-        // Retornem un objecte Entrenador amb les dades introdu√Ødes
+        // Retornem un objecte Entrenador amb les dades introdu?Ødes
         return new Entrenador(username, password);
     }
 
-    // M√®tode per mostrar un missatge quan l'usuari s'ha registrat
+    // M?®tode per mostrar un missatge quan l'usuari s'ha registrat
     public void mostrarMissatgeRegistrat(String username) {
-        System.out.println("Benvingut, " + username + "! Has estat registrat amb √®xit.");
+        System.out.println("Benvingut, " + username + "! Has estat registrat amb ?®xit.");
     }
 
-    // M√®tode per mostrar un missatge d'error en cas de contrasenya incorrecta
+    // M?®tode per mostrar un missatge d'error en cas de contrasenya incorrecta
     public void mostrarMissatgeContrasenyaIncorrecta() {
-        System.out.println("Contrasenya incorrecta. El programa s'acabar√†.");
+        System.out.println("Contrasenya incorrecta. El programa s'acabar?†.");
     }
 
-    // M√®tode per mostrar el men√∫ principal
-    public void mostrarMenu() {
-        System.out.println("\nEscull una opci√≥:");
-        System.out.println("0.- Sortir");
-        System.out.println("1.- Donar-se d'alta com a entrenador");
-        System.out.println("2.- Donar-se de baixa com a entrenador");
-        System.out.println("3.- Consultar dades d'entrenador");
-        System.out.println("4.- Llistar entrenadors");
-        System.out.println("5.- Donar d'alta Pok√©mon");
-        System.out.println("6.- Cazar Pok√©mon");
-        System.out.println("7.- Llistar Pok√©mons capturats");
-        System.out.println("8.- Llistar tipus de Pok√©mon");
-    }
+//    // M?®tode per mostrar el men?∫ principal
+//    public void mostrarMenu() {
+//        System.out.println("\nEscull una opci?≥:");
+//        System.out.println("0.- Sortir");
+//        System.out.println("1.- Donar-se d'alta com a entrenador");
+//        System.out.println("2.- Donar-se de baixa com a entrenador");
+//        System.out.println("3.- Consultar dades d'entrenador");
+//        System.out.println("4.- Llistar entrenadors");
+//        System.out.println("5.- Donar d'alta Pok?©mon");
+//        System.out.println("6.- Cazar Pok?©mon");
+//        System.out.println("7.- Llistar Pok?©mons capturats");
+//        System.out.println("8.- Llistar tipus de Pok?©mon");
+//    }
 
-    // M√®tode per mostrar missatges generals
+    // M?®tode per mostrar missatges generals
     public void mostrarMissatge(String missatge) {
         System.out.println(missatge);
     }
 
-    // M√®tode per demanar la selecci√≥ del men√∫
+    // M?®tode per demanar la selecci?≥ del men?∫
     public int demanarOpcioMenu() {
-        System.out.print("Selecciona una opci√≥: ");
+        System.out.print("Selecciona una opcio: ");
         return scanner.nextInt();
     }
 
     public String demanarNomEntrenador() {
         System.out.print("Introdueix el nom de l'entrenador per donar-se de baixa: ");
         return scanner.nextLine();
+    }
+
+    public int datosAtaque(int max) {
+        System.out.print("Quin numero et permetra captura el pokemon? (1-" + max);
+        return scanner.nextInt();
     }
 
 

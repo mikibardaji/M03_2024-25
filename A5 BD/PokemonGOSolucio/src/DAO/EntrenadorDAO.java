@@ -85,7 +85,8 @@ public class EntrenadorDAO {
         return entrenadors;
     }
     
-    public void tancarConexió() throws SQLException
+    
+    public void tancarConexio() throws SQLException
     {
         conn.close();
     }
