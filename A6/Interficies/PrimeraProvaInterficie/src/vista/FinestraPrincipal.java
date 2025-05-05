@@ -128,12 +128,26 @@ NORTH, SOUTH, EAST, WEST, CENTER.
 
     private void crearMenu() {
         JMenuBar menuBar = new JMenuBar(); //això es la barra
-        JMenu menu = new JMenu("File");
-        JMenuItem newMenu = new JMenuItem("New..");
         
+         
+        JMenu menu = new JMenu("File");
+        JMenuItem newMenu = new JMenuItem("New..");  
         menu.add(newMenu); //afegeixo items al menú
+        JMenuItem newExit = new JMenuItem("Exit..");
+        menu.add(newExit); //afegeixo items al menú
         menuBar.add(menu);
         
+        
+        //segona opcio menú
+        JMenu menuCalc = new JMenu("Calc");
+        JMenuItem newConvert = new JMenuItem("Convert");
+        menuCalc.add(newConvert);
+        menuBar.add(menuCalc);
+        //Help
+        JMenu menuHelp = new JMenu("Help");
+        JMenuItem newAbout = new JMenuItem("About");
+        menuHelp.add(newAbout);
+        menuBar.add(menuHelp);
         
         //JFrame
         this.setJMenuBar(menuBar);
