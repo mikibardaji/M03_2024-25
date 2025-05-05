@@ -5,6 +5,7 @@
 package vista;
 
 import java.awt.GridLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -14,18 +15,20 @@ import javax.swing.JRadioButton;
  */
 public class PanelRadioButtons extends JPanel {
 
+    JRadioButton euro,dolar,peso,Yen,Dirham,Rublo;
     public PanelRadioButtons() {
         this.setLayout(new GridLayout(2, 3));
         initComponents();
     }
 
     private void initComponents() {
-        JRadioButton euro = new JRadioButton("Euros");
-        JRadioButton dolar = new JRadioButton("Dolares");
-        JRadioButton peso = new JRadioButton("Pesos");
-        JRadioButton Yen = new JRadioButton("Yen");
-        JRadioButton Dirham = new JRadioButton("Dirham");
-        JRadioButton Rublo = new JRadioButton("Rublos");
+        ButtonGroup grupo = new ButtonGroup();
+        euro = new JRadioButton("Euros");
+        dolar = new JRadioButton("Dolares");
+        peso = new JRadioButton("Pesos");
+        Yen = new JRadioButton("Yen");
+        Dirham = new JRadioButton("Dirham");
+        Rublo = new JRadioButton("Rublos");
         
         this.add(euro);
         this.add(dolar);
@@ -33,8 +36,40 @@ public class PanelRadioButtons extends JPanel {
         this.add(Yen);
         this.add(Dirham);
         this.add(Rublo);
+        grupo.add(euro);
+        grupo.add(dolar);
+        grupo.add(peso);
+        grupo.add(Yen);
+        grupo.add(Dirham);
+        grupo.add(Rublo);
         
     }
+
+    public JRadioButton getEuro() {
+        return euro;
+    }
+
+    public JRadioButton getDolar() {
+        return dolar;
+    }
+
+    public JRadioButton getPeso() {
+        return peso;
+    }
+
+    public JRadioButton getYen() {
+        return Yen;
+    }
+
+    public JRadioButton getDirham() {
+        return Dirham;
+    }
+
+    public JRadioButton getRublo() {
+        return Rublo;
+    }
+    
+    
     
     
     
