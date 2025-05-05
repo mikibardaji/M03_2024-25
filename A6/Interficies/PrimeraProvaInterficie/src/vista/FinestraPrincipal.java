@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -33,7 +36,6 @@ public class FinestraPrincipal extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         afegirComponents();
-        
         this.setVisible(true); //ultima linea
     }
 
@@ -45,6 +47,7 @@ public class FinestraPrincipal extends JFrame {
         //disposicioBorderLayout();
         //disposicioGridLayout();
         disposicioMixConversorMoneda();
+        crearMenu();
 
     }
 
@@ -121,6 +124,20 @@ NORTH, SOUTH, EAST, WEST, CENTER.
         PanelRadioButtons opciones_conversion2 = new PanelRadioButtons();
         this.getContentPane().add(opciones_conversion2, BorderLayout.EAST);
                 
+    }
+
+    private void crearMenu() {
+        JMenuBar menuBar = new JMenuBar(); //això es la barra
+        JMenu menu = new JMenu("File");
+        JMenuItem newMenu = new JMenuItem("New..");
+        
+        menu.add(newMenu); //afegeixo items al menú
+        menuBar.add(menu);
+        
+        
+        //JFrame
+        this.setJMenuBar(menuBar);
+        
     }
     
     
