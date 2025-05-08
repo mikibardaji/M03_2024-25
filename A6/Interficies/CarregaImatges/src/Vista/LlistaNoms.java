@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Model.DaoNoms;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -20,8 +21,10 @@ import javax.swing.JTable;
  */
 public class LlistaNoms extends JPanel {
 
+    DaoNoms model;
 
     public LlistaNoms() {
+        model = new DaoNoms();
         initComponents(); 
     }
 
@@ -29,7 +32,7 @@ public class LlistaNoms extends JPanel {
         
 //        setLayout(new GridLayout(0, 2, 10, 10)); // 2 columnes, separació de 10px
 //
-        List<String> noms = Arrays.asList("Aina", "Nil", "Lluc", "Ona", "Jan", "Leo", "Mar");
+       
 //
 //        for (String nom : noms) {
 //            JLabel etiquetaNom = new JLabel(nom, JLabel.CENTER);
@@ -39,13 +42,13 @@ public class LlistaNoms extends JPanel {
 
 // Cal convertir-ho en un array bidimensional per JTable
     int columnes = 1;
-    int files = (int) Math.ceil((double) noms.size() / columnes);
+    int files = (int) Math.ceil((double) model.getNumEntrenadors() / columnes);
     String[][] dades = new String[files][columnes];
 
-    for (int i = 0; i < noms.size(); i++) {
+    for (int i = 0; i < model.getNumEntrenadors(); i++) {
         int fila = i / columnes;
         int columna = i % columnes;
-        dades[fila][columna] = noms.get(i);
+        dades[fila][columna] = model.getEntrenadorPosicio(i);
     }
 
     // Capçaleres (pots deixar-les buides si no vols noms de columna)
