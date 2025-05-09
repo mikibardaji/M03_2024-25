@@ -6,6 +6,7 @@
 package contador;
 
 import javax.swing.SwingUtilities;
+import model.ContadorModel;
 import vista.FinestraPrincipal;
 
 /**
@@ -18,8 +19,10 @@ public class Contador {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        ContadorModel modelo = new ContadorModel();
         SwingUtilities.invokeLater(() -> {
             new FinestraPrincipal();
+            //new FinestraPrincipal(modelo);
         });
     }
     

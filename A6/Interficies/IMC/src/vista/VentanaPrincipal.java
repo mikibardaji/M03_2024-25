@@ -43,7 +43,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
         listener = this;
         initComponents();
         crearMenu();
-    
+        this.setVisible(true); //ultima linea
     }
     
     
@@ -54,11 +54,11 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
         this.setLocationRelativeTo(null); //centrar a la pantalla
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        afegirComponents();
-        this.setVisible(true); //ultima linea
+        carregarPanel();
+      
     }
 
-    private void afegirComponents() {
+    private void carregarPanel() {
         this.setContentPane(new InitApp());
     }
 

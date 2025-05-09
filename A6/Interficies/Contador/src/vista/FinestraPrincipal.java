@@ -14,26 +14,8 @@ public class FinestraPrincipal extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
 
         carregarPanellInicial();
+        cargarMenu();
 
-        JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("Opcions");
-        
-        JMenuItem itemInicial = new JMenuItem("Panell inicial");
-        itemInicial.setActionCommand("inicial");
-        itemInicial.addActionListener(listener);
-        
-        JMenuItem itemContador = new JMenuItem("Obrir contador");
-        itemContador.setActionCommand("contador");
-        itemContador.addActionListener(listener);
-
-        JMenuItem itemExit = new JMenuItem("Exit");
-        itemExit.setActionCommand("exit");
-        itemExit.addActionListener(listener);
-        menu.add(itemInicial);
-        menu.add(itemContador);
-         menu.add(itemExit);
-        menuBar.add(menu);
-        setJMenuBar(menuBar);
 
         setVisible(true);
     }
@@ -69,5 +51,27 @@ public class FinestraPrincipal extends JFrame implements ActionListener {
                 break;
         }
              
+    }
+
+    private void cargarMenu() {
+          JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("Opcions");
+        
+        JMenuItem itemInicial = new JMenuItem("Panell inicial");
+        itemInicial.setActionCommand("inicial");
+        itemInicial.addActionListener(listener);
+        
+        JMenuItem itemContador = new JMenuItem("Obrir contador");
+        itemContador.setActionCommand("contador");
+        itemContador.addActionListener(listener);
+
+        JMenuItem itemExit = new JMenuItem("Exit");
+        itemExit.setActionCommand("exit");
+        itemExit.addActionListener(listener);
+        menu.add(itemInicial);
+        menu.add(itemContador);
+         menu.add(itemExit);
+        menuBar.add(menu);
+        setJMenuBar(menuBar);
     }
 }

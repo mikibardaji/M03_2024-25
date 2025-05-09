@@ -6,10 +6,11 @@ import java.awt.event.ActionEvent;
 import model.ContadorModel;
 
 public class PanellContador extends JPanel {
-    private int contador = 0;
-    private final ContadorModel model = new ContadorModel();
+
+    private final ContadorModel model ;
 
     public PanellContador() {
+        model = new ContadorModel();
         setLayout(new FlowLayout());
 
         JLabel labelContador = new JLabel("Comptador: " + model.getContador());
@@ -17,8 +18,7 @@ public class PanellContador extends JPanel {
 
         //fico aquí la acció perque en tota la pantalla no hi ha mes events
         boto.addActionListener((ActionEvent e) -> {
-            contador = model.incrementa();
-            labelContador.setText("Comptador: " + contador);
+            labelContador.setText("Comptador: " + model.incrementa());
         });
 
         add(labelContador);
