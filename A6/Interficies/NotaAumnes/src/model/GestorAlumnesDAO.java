@@ -20,8 +20,15 @@ public class GestorAlumnesDAO implements IGestorAlumnesDAO {
         return alumnes.get(indexActual);
     }
 
-    public void guardarNotaActual(double nota) {
-        alumnes.get(indexActual).setNota(nota);
+    public void guardarNotaActual(double nota) throws NumberFormatException {
+        if (nota < 0 || nota > 10) {
+                throw new NumberFormatException("Introdueix una nota vàlida entre 0 i 10.");
+            }
+        else
+        {
+            alumnes.get(indexActual).setNota(nota);
+        }
+        
     }
 
     public boolean hiHaSeguent() {

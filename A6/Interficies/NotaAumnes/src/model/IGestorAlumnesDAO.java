@@ -5,7 +5,8 @@ public interface IGestorAlumnesDAO {
     Persona getActual();
 
     // Guarda una nova nota per a l'alumne actual
-    void guardarNotaActual(double nota);
+    //sempre que estigui entre 0 i 10
+    void guardarNotaActual(double nota) throws NumberFormatException;
 
     // Indica si hi ha un alumne següent en la llista
     boolean hiHaSeguent();
