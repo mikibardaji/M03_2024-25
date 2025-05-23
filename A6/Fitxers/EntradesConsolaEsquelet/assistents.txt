@@ -1,0 +1,9 @@
+Marc Garcia,19,marc.garcia@gmail.com,VIP,Divendres
+Laura Martí,22,lauramarti@hotmail.com,Normal,Dissabte
+Carlos Pérez,20,carlos2004@gmail.com,Normal,Divendres
+Sofia Ruiz,21,sofiaruiz@outlook.com,VIP,Dissabte
+Josep Bonet,18,josepbonet@gmail.com,Normal,Diumenge
+Elena Castro,23,elenacastro@hotmail.com,Normal,Dissabte
+Pau Fernández,19,paufernandez@gmail.com,VIP,Divendres
+Maria López,20,marialopez@outlook.com,Normal,Dissabte
+j,12,j@j.com,VIP,Diumenge
